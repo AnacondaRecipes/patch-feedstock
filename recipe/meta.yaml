@@ -21,7 +21,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - make
-
+    - libtool
 test:
   commands:
     - patch --help
