@@ -1,25 +1,25 @@
 {% set name = "patch" %}
-{% set version = "2.7.6" %}
+{% set version = "2.8" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://ftp.gnu.org/gnu/patch/patch-{{ version }}.tar.gz
-  sha256: 8cf86e00ad3aaa6d26aca30640e86b0e3e1f395ed99f189b06d4c9f74bc58a4e
+  sha256: 308a4983ff324521b9b21310bfc2398ca861798f02307c79eb99bb0e0d2bf980
   patches:
     # TODO: Figure out why fedora/suse/debian don't need this
     - 0001-Relax-open-fds-count-for-deep-directories.patch  # [linux]
 
 build:
-  number: 1001
+  number: 0
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - make
     - libtool
 test:
@@ -31,15 +31,17 @@ test:
     - testfile.patch
 
 about:
-  home: http://savannah.gnu.org/projects/patch/
-  license: GPL 3
+  home: https://savannah.gnu.org/projects/patch
+  license: GPLv3
+  license_family: GPL
   license_file: COPYING
-  summary: Native Win32 versions of common unix tools
+  summary: This is GNU patch, which applies diff files to original files.
   description: |
     Patch takes a patch file containing a difference listing produced by the
     diff program and applies those differences to one or more original files,
     producing patched versions.
-  dev_url: http://git.savannah.gnu.org/cgit/patch.git
+  dev_url: https://git.savannah.gnu.org/git/patch.git
+  doc_url: https://savannah.gnu.org/projects/patch
 
 extra:
   recipe-maintainers:

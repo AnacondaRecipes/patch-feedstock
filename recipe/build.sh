@@ -7,3 +7,4 @@ cp -r ${BUILD_PREFIX}/share/libtool/build-aux/config.* ./build-aux
 make -j${CPU_COUNT} ${VERBOSE_AT}
 make check
 make install
+make installcheck
