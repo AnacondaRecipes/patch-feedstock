@@ -32,7 +32,7 @@ test:
 
 about:
   home: https://savannah.gnu.org/projects/patch
-  license: GPLv3
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file: COPYING
   summary: This is GNU patch, which applies diff files to original files.
