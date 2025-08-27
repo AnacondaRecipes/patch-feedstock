@@ -6,7 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://ftp.gnu.org/gnu/patch/patch-{{ version }}.tar.gz
+  # https://www.gnu.org/prep/ftp.html
+  url: https://mirrors.ibiblio.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 308a4983ff324521b9b21310bfc2398ca861798f02307c79eb99bb0e0d2bf980
   patches:
     # TODO: Figure out why fedora/suse/debian don't need this
