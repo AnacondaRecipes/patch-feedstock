@@ -1,21 +1,21 @@
 {% set name = "patch" %}
-{% set version = "2.8" %}
+{% set version = "2.8.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   # https://www.gnu.org/prep/ftp.html
   url: https://mirrors.ibiblio.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 308a4983ff324521b9b21310bfc2398ca861798f02307c79eb99bb0e0d2bf980
+  sha256: 0f7b43c7ea450c5d3e9eaf8301177628bc0171d580b2bd6a72822409767144ff
   patches:
-    # TODO: Figure out why fedora/suse/debian don't need this
+    # Avoid "Too many open files" in the deep-directories test on Linux.
     - 0001-Relax-open-fds-count-for-deep-directories.patch  # [linux]
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: true  # [win]
 
 requirements:
   build:
